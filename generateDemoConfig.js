@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
+RPC_URL = 'http://localhost:8545'
+
+fs = require('fs')
 Web3 = require("web3")
-web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+web3 = new Web3(new Web3.providers.HttpProvider(RPC_URL))
 
 accounts = []
 
@@ -20,11 +23,16 @@ function getPrivateKey(key) {
     return getAndCreateAccount(key)['privateKey']
 }
 
-topAdminPrivateKey = getPrivateKey('admin')
+connectionConfig = {
+    "develop": {
+        "web3": RPC_URL,
+        "deployKey": getPrivateKey('admin')
+    }
+}
 
 demoConfig = 
 {
-    "topAdminPrivateKey": topAdminPrivateKey,
+    "topAdminPrivateKey": getPrivateKey('admin'),
     "flow": [
         {
             "type": "CREATE_ACCOUNT",
@@ -38,8 +46,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": getAddress(0),
-                "privateKey": getPrivateKey(0),
+                "address": "0x71c31ff1faa17b1cb5189fd845e0cca650d215d3",
+                "privateKey": "0xbfb423a193614c6712efd02951289192c20d70b3fc8a8b7cdee73603fcead486",
                 "rights": 1
             }
         },
@@ -55,8 +63,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": getAddress(1),
-                "privateKey": getPrivateKey(1),
+                "address": "0xcea1c413a570654fa85e78f7c17b755563fec5a5",
+                "privateKey": "0x5c0b28bff67916a879953c50b25c73827ae0b777a2ad13abba2e4b67f843294e",
                 "rights": 2
             }
         },
@@ -72,8 +80,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": getAddress(2),
-                "privateKey": getPrivateKey(2),
+                "address": "0x583b3e16a27f3db4bdc4c1a5452eeed14619c8da",
+                "privateKey": "0x37b3b1d577f61fac7afc161a12669361a7f308ad42c7b093dc10ff1781bb618d",
                 "rights": 4
             }
         },
@@ -89,8 +97,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": getAddress(3),
-                "privateKey": getPrivateKey(3),
+                "address": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "privateKey": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047",
                 "rights": 24
             }
         },
@@ -106,8 +114,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": getAddress(4),
-                "privateKey": getPrivateKey(4),
+                "address": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
+                "privateKey": "0x6ee02c057cda3019132c670b425e6caea4f055ac8f64377d2463f123e71babec",
                 "rights": 24
             }
         },
@@ -123,8 +131,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": getAddress(5),
-                "privateKey": getPrivateKey(5),
+                "address": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691",
+                "privateKey": "0x9d66d342a3b6014a7cff6ff0379b192dbe193e43bb6979625c600c4996bb3b85",
                 "rights": 16
             }
         },
@@ -140,18 +148,18 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": getAddress('matcher'),
-                "privateKey": getPrivateKey('matcher'),
+                "address": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
+                "privateKey": "0xe9a63e116f72c2e368376eb88c22fecf2a5e94a93464ff8802cf97caac657548",
                 "rights": 63
             }
         },
         {
             "type": "CREATE_PRODUCING_ASSET",
             "data": {
-                "smartMeter": getAddress('smartmeter'),
-                "smartMeterPK": getPrivateKey('smartmeter'),
-                "owner": getAddress(3),
-                "matcher": getAddress('matcher'),
+                "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
+                "smartMeterPK": "12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
+                "owner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
                 "operationalSince": 1514764800,
                 "capacityWh": 10000,
                 "lastSmartMeterReadWh": 0,
@@ -177,10 +185,10 @@ demoConfig =
         {
             "type": "CREATE_PRODUCING_ASSET",
             "data": {
-                "smartMeter": getAddress('smartmeter4'),
-                "smartMeterPK": getPrivateKey('smartmeter4'),
-                "owner": getAddress(4),
-                "matcher": getAddress('matcher'),
+                "smartMeter": "0x84a2c086ffa013d06285cdd303556ec9be5a1ff7",
+                "smartMeterPK": "a05ddf7fe8302d117b516c0e401468a30c39a3e467ad3720381cf89500f0854b",
+                "owner": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
+                "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
                 "operationalSince": 1483228800,
                 "capacityWh": 10,
                 "lastSmartMeterReadWh": 0,
@@ -206,10 +214,10 @@ demoConfig =
         {
             "type": "CREATE_PRODUCING_ASSET",
             "data": {
-                "smartMeter": getAddress('smartmeter3'),
-                "smartMeterPK": getPrivateKey('smartmeter3'),
-                "owner": getAddress(3),
-                "matcher": getAddress('matcher'),
+                "smartMeter": "0x00f4af465162c05843ea38d203d37f7aad2e2c17",
+                "smartMeterPK": "09f08bc14bfdaf427fdd0eb676db21a86fa908a25870158345e4f847b5ada35e",
+                "owner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
                 "operationalSince": 1514764800,
                 "capacityWh": 10000,
                 "lastSmartMeterReadWh": 0,
@@ -235,10 +243,10 @@ demoConfig =
         {
             "type": "CREATE_CONSUMING_ASSET",
             "data": {
-                "smartMeter": getAddress('smartmeter3consume'),
-                "smartMeterPK": getPrivateKey('smartmeter3consume'),
-                "owner": getAddress(3),
-                "matcher": getAddress('matcher'),
+                "smartMeter": "0x1112ec367b20d2bffd40ee11523c3d36d61adf1b",
+                "smartMeterPK": "50764e302e4ed8ce624003deca642c03ce06934fe77585175c5576723f084d4c",
+                "owner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
                 "operationalSince": 1529971200,
                 "capacityWh": 5000,
                 "lastSmartMeterReadWh": 0,
@@ -264,24 +272,24 @@ demoConfig =
             "type": "INITIALIZE_CERTIFICATES",
             "data": {
                 "assetId": 0,
-                "assetOwner": getAddress(3),
-                "assetOwnerPK": getPrivateKey(3)
+                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047"
             }
         },
         {
             "type": "INITIALIZE_CERTIFICATES",
             "data": {
                 "assetId": 1,
-                "assetOwner": getAddress(4),
-                "assetOwnerPK": getPrivateKey(4)
+                "assetOwner": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
+                "assetOwnerPK": "0x6ee02c057cda3019132c670b425e6caea4f055ac8f64377d2463f123e71babec"
             }
         },
         {
             "type": "INITIALIZE_CERTIFICATES",
             "data": {
                 "assetId": 2,
-                "assetOwner": getAddress(3),
-                "assetOwnerPK": getPrivateKey(3)
+                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047"
             }
         },
         {
@@ -289,8 +297,8 @@ demoConfig =
             "data": {
                 "assetId": 0,
                 "meterreading": 10,
-                "smartMeter": getAddress('smartmeter'),
-                "smartMeterPK": getPrivateKey('smartmeter'),
+                "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
+                "smartMeterPK": "0x12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
                 "filehash": "newMeterRead"
             }
         },
@@ -299,8 +307,8 @@ demoConfig =
             "data": {
                 "assetId": 0,
                 "meterreading": 10,
-                "smartMeter": getAddress('smartmeter3consume'),
-                "smartMeterPK": getPrivateKey('smartmeter3consume'),
+                "smartMeter": "0x1112ec367b20d2bffd40ee11523c3d36d61adf1b",
+                "smartMeterPK": "0x50764e302e4ed8ce624003deca642c03ce06934fe77585175c5576723f084d4c",
                 "filehash": "newMeterRead"
             }
         },
@@ -308,9 +316,9 @@ demoConfig =
             "type": "TRANSFER_CERTIFICATE",
             "data": {
                 "certId": 0,
-                "assetOwner": getAddress(3),
-                "assetOwnerPK": getPrivateKey(3),
-                "addressTo": getAddress(5)
+                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047",
+                "addressTo": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691"
             }
         },
         {
@@ -318,8 +326,8 @@ demoConfig =
             "data": {
                 "assetId": 0,
                 "meterreading": 15,
-                "smartMeter": getAddress('smartmeter'),
-                "smartMeterPK": getPrivateKey('smartmeter'),
+                "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
+                "smartMeterPK": "0x12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
                 "filehash": "newMeterRead"
             }
         },
@@ -327,8 +335,8 @@ demoConfig =
             "type": "SPLIT_CERTIFICATE",
             "data": {
                 "certId":1,
-                "assetOwner": getAddress(3),
-                "assetOwnerPK": getPrivateKey(3),
+                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047",
                 "splitValue": 3
             }
         },
@@ -337,8 +345,8 @@ demoConfig =
             "data": {
                 "assetId": 0,
                 "meterreading": 20,
-                "smartMeter": getAddress('smartmeter'),
-                "smartMeterPK": getPrivateKey('smartmeter'),
+                "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
+                "smartMeterPK": "0x12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
                 "filehash": "newMeterRead"
             }
         },
@@ -346,10 +354,10 @@ demoConfig =
             "type": "SET_ERC20_CERTIFICATE",
             "data": {
                 "certId":4,
-                "assetOwner": getAddress(3),
-                "assetOwnerPK": getPrivateKey(3),
+                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047",
                 "price": 1000,
-                "testAccount": getAddress(5)
+                "testAccount": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691"
             }
         },
         {
@@ -357,9 +365,9 @@ demoConfig =
             "data": {
                 "certId": 4,
                 "price": 1000,
-                "buyer": getAddress(5),
-                "buyerPK": getPrivateKey(5),
-                "assetOwner": getAddress(3)
+                "buyer": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691",
+                "buyerPK": "0x9d66d342a3b6014a7cff6ff0379b192dbe193e43bb6979625c600c4996bb3b85",
+                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d"
             }
         },
         {
@@ -367,16 +375,16 @@ demoConfig =
             "data": {
                 "assetId": 1,
                 "meterreading": 5,
-                "smartMeter": getAddress('smartmeter4'),
-                "smartMeterPK": getPrivateKey('smartmeter4'),
+                "smartMeter": "0x84a2c086ffa013d06285cdd303556ec9be5a1ff7",
+                "smartMeterPK": "0xa05ddf7fe8302d117b516c0e401468a30c39a3e467ad3720381cf89500f0854b",
                 "filehash": "newMeterRead"
             }
         },
         {
             "type": "CREATE_DEMAND",
             "data": {
-                "trader": getAddress(5),
-                "traderPK": getPrivateKey(5),
+                "trader": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691",
+                "traderPK": "0x9d66d342a3b6014a7cff6ff0379b192dbe193e43bb6979625c600c4996bb3b85",
                 "timeframe": "hourly",
                 "pricePerCertifiedWh": 10,
                 "currency": "Ether",
@@ -396,8 +404,8 @@ demoConfig =
             "type": "CREATE_SUPPLY",
             "data": {
                 "assetId": 1,
-                "assetOwner": getAddress(4),
-                "assetOwnerPK": getPrivateKey(4),
+                "assetOwner": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
+                "assetOwnerPK": "0x6ee02c057cda3019132c670b425e6caea4f055ac8f64377d2463f123e71babec",
                 "price": 10,
                 "currency": "USD",
                 "availableWh": 10,
@@ -407,8 +415,8 @@ demoConfig =
         {
             "type": "MAKE_AGREEMENT",
             "data": {
-              "creator": getAddress(5),
-              "creatorPK": getPrivateKey(5),
+              "creator": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691",
+              "creatorPK": "0x9d66d342a3b6014a7cff6ff0379b192dbe193e43bb6979625c600c4996bb3b85",
               "startTime": -1,
               "endTime": 3600,
               "price": 10,
@@ -419,15 +427,15 @@ demoConfig =
               "currentPeriod": 0,
               "demandId": 0,
               "supplyId": 0,
-              "allowedMatcher": getAddress('matcher')
+              "allowedMatcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e"
             }
         },
         {
             "type": "APPROVE_AGREEMENT",
             "data": {
                 "agreementId": 0,
-                "agree": getAddress(4),
-                "agreePK": getPrivateKey(4)
+                "agree": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
+                "agreePK": "0x6ee02c057cda3019132c670b425e6caea4f055ac8f64377d2463f123e71babec"
             }
         },
         {
@@ -435,13 +443,13 @@ demoConfig =
             "data": {
                 "assetId": 1,
                 "meterreading": 200,
-                "smartMeter": getAddress('smartmeter4'),
-                "smartMeterPK": getPrivateKey('smartmeter4'),
+                "smartMeter": "0x84a2c086ffa013d06285cdd303556ec9be5a1ff7",
+                "smartMeterPK": "0xa05ddf7fe8302d117b516c0e401468a30c39a3e467ad3720381cf89500f0854b",
                 "filehash": "newMeterRead"
             }
         }
     ]
 }
 
-console.log(JSON.stringify(demoConfig, null, 4))
-
+fs.writeFile('connection-config.json', JSON.stringify(connectionConfig, null, 4), function(err){})
+fs.writeFile('config/demo-config.json', JSON.stringify(demoConfig, null, 4), function(err){})
