@@ -97,8 +97,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
-                "privateKey": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047",
+                "address": getAddress("Doe Four"),
+                "privateKey": getPrivateKey("Doe Four"),
                 "rights": 24
             }
         },
@@ -114,8 +114,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
-                "privateKey": "0x6ee02c057cda3019132c670b425e6caea4f055ac8f64377d2463f123e71babec",
+                "address": getAddress("Doe Five"),
+                "privateKey": getPrivateKey("Doe Five"),
                 "rights": 24
             }
         },
@@ -131,8 +131,8 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691",
-                "privateKey": "0x9d66d342a3b6014a7cff6ff0379b192dbe193e43bb6979625c600c4996bb3b85",
+                "address": getAddress("Doe Six"),
+                "privateKey": getPrivateKey("Doe Six"),
                 "rights": 16
             }
         },
@@ -158,7 +158,7 @@ demoConfig =
             "data": {
                 "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
                 "smartMeterPK": "12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
-                "owner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "owner": getAddress("Doe Four"),
                 "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
                 "operationalSince": 1514764800,
                 "capacityWh": 10000,
@@ -187,7 +187,7 @@ demoConfig =
             "data": {
                 "smartMeter": "0x84a2c086ffa013d06285cdd303556ec9be5a1ff7",
                 "smartMeterPK": "a05ddf7fe8302d117b516c0e401468a30c39a3e467ad3720381cf89500f0854b",
-                "owner": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
+                "owner": getAddress("Doe Five"),
                 "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
                 "operationalSince": 1483228800,
                 "capacityWh": 10,
@@ -216,7 +216,7 @@ demoConfig =
             "data": {
                 "smartMeter": "0x00f4af465162c05843ea38d203d37f7aad2e2c17",
                 "smartMeterPK": "09f08bc14bfdaf427fdd0eb676db21a86fa908a25870158345e4f847b5ada35e",
-                "owner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "owner": getAddress("Doe Four"),
                 "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
                 "operationalSince": 1514764800,
                 "capacityWh": 10000,
@@ -245,7 +245,7 @@ demoConfig =
             "data": {
                 "smartMeter": "0x1112ec367b20d2bffd40ee11523c3d36d61adf1b",
                 "smartMeterPK": "50764e302e4ed8ce624003deca642c03ce06934fe77585175c5576723f084d4c",
-                "owner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
+                "owner": getAddress("Doe Four"),
                 "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
                 "operationalSince": 1529971200,
                 "capacityWh": 5000,
@@ -272,24 +272,24 @@ demoConfig =
             "type": "INITIALIZE_CERTIFICATES",
             "data": {
                 "assetId": 0,
-                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
-                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047"
+                "assetOwner": getAddress("Doe Four"),
+                "assetOwnerPK": getPrivateKey("Doe Four")
             }
         },
         {
             "type": "INITIALIZE_CERTIFICATES",
             "data": {
                 "assetId": 1,
-                "assetOwner": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
-                "assetOwnerPK": "0x6ee02c057cda3019132c670b425e6caea4f055ac8f64377d2463f123e71babec"
+                "assetOwner": getAddress("Doe Five"),
+                "assetOwnerPK": getPrivateKey("Doe Five")
             }
         },
         {
             "type": "INITIALIZE_CERTIFICATES",
             "data": {
                 "assetId": 2,
-                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
-                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047"
+                "assetOwner": getAddress("Doe Four"),
+                "assetOwnerPK": getPrivateKey("Doe Four")
             }
         },
         {
@@ -316,9 +316,9 @@ demoConfig =
             "type": "TRANSFER_CERTIFICATE",
             "data": {
                 "certId": 0,
-                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
-                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047",
-                "addressTo": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691"
+                "assetOwner": getAddress("Doe Four"),
+                "assetOwnerPK": getPrivateKey("Doe Four"),
+                "addressTo": getAddress("Doe Six")
             }
         },
         {
@@ -335,8 +335,8 @@ demoConfig =
             "type": "SPLIT_CERTIFICATE",
             "data": {
                 "certId":1,
-                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
-                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047",
+                "assetOwner": getAddress("Doe Four"),
+                "assetOwnerPK": getPrivateKey("Doe Four"),
                 "splitValue": 3
             }
         },
@@ -354,10 +354,10 @@ demoConfig =
             "type": "SET_ERC20_CERTIFICATE",
             "data": {
                 "certId":4,
-                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d",
-                "assetOwnerPK": "0x96ce644659ea5572aedc29296c866a62c36c6cdcafc8801c1c46d02abc8c0047",
+                "assetOwner": getAddress("Doe Four"),
+                "assetOwnerPK": getPrivateKey("Doe Four"),
                 "price": 1000,
-                "testAccount": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691"
+                "testAccount": getAddress("Doe Six")
             }
         },
         {
@@ -365,9 +365,9 @@ demoConfig =
             "data": {
                 "certId": 4,
                 "price": 1000,
-                "buyer": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691",
-                "buyerPK": "0x9d66d342a3b6014a7cff6ff0379b192dbe193e43bb6979625c600c4996bb3b85",
-                "assetOwner": "0x33496f621350cea01b18ea5b5c43c6c233c3f72d"
+                "buyer": getAddress("Doe Six"),
+                "buyerPK": getPrivateKey("Doe Six"),
+                "assetOwner": getAddress("Doe Four")
             }
         },
         {
@@ -383,8 +383,8 @@ demoConfig =
         {
             "type": "CREATE_DEMAND",
             "data": {
-                "trader": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691",
-                "traderPK": "0x9d66d342a3b6014a7cff6ff0379b192dbe193e43bb6979625c600c4996bb3b85",
+                "trader": getAddress("Doe Six"),
+                "traderPK": getPrivateKey("Doe Six"),
                 "timeframe": "hourly",
                 "pricePerCertifiedWh": 10,
                 "currency": "Ether",
@@ -404,8 +404,8 @@ demoConfig =
             "type": "CREATE_SUPPLY",
             "data": {
                 "assetId": 1,
-                "assetOwner": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
-                "assetOwnerPK": "0x6ee02c057cda3019132c670b425e6caea4f055ac8f64377d2463f123e71babec",
+                "assetOwner": getAddress("Doe Five"),
+                "assetOwnerPK": getPrivateKey("Doe Five"),
                 "price": 10,
                 "currency": "USD",
                 "availableWh": 10,
@@ -415,8 +415,8 @@ demoConfig =
         {
             "type": "MAKE_AGREEMENT",
             "data": {
-              "creator": "0x4095f1db44884764C17c7A9A31B4Bf20f5779691",
-              "creatorPK": "0x9d66d342a3b6014a7cff6ff0379b192dbe193e43bb6979625c600c4996bb3b85",
+              "creator": getAddress("Doe Six"),
+              "creatorPK": getPrivateKey("Doe Six"),
               "startTime": -1,
               "endTime": 3600,
               "price": 10,
@@ -434,8 +434,8 @@ demoConfig =
             "type": "APPROVE_AGREEMENT",
             "data": {
                 "agreementId": 0,
-                "agree": "0x51ba6877a2c4580d50f7ceece02e2f24e78ef123",
-                "agreePK": "0x6ee02c057cda3019132c670b425e6caea4f055ac8f64377d2463f123e71babec"
+                "agree": getAddress("Doe Five"),
+                "agreePK": getPrivateKey("Doe Five")
             }
         },
         {
