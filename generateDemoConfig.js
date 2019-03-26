@@ -148,18 +148,18 @@ demoConfig =
                 "city": "Anytown",
                 "country": "USA",
                 "state": "Anystate",
-                "address": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
-                "privateKey": "0xe9a63e116f72c2e368376eb88c22fecf2a5e94a93464ff8802cf97caac657548",
+                "address": getAddress("Matcher"),
+                "privateKey": getPrivateKey("Matcher"),
                 "rights": 63
             }
         },
         {
             "type": "CREATE_PRODUCING_ASSET",
             "data": {
-                "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
-                "smartMeterPK": "12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
+                "smartMeter": getAddress("Smart Meter Producing Four"),
+                "smartMeterPK": getPrivateKey("Smart Meter Producing Four"),
                 "owner": getAddress("Doe Four"),
-                "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
+                "matcher": getAddress("Matcher"),
                 "operationalSince": 1514764800,
                 "capacityWh": 10000,
                 "lastSmartMeterReadWh": 0,
@@ -188,7 +188,7 @@ demoConfig =
                 "smartMeter": "0x84a2c086ffa013d06285cdd303556ec9be5a1ff7",
                 "smartMeterPK": "a05ddf7fe8302d117b516c0e401468a30c39a3e467ad3720381cf89500f0854b",
                 "owner": getAddress("Doe Five"),
-                "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
+                "matcher": getAddress("Matcher"),
                 "operationalSince": 1483228800,
                 "capacityWh": 10,
                 "lastSmartMeterReadWh": 0,
@@ -217,7 +217,7 @@ demoConfig =
                 "smartMeter": "0x00f4af465162c05843ea38d203d37f7aad2e2c17",
                 "smartMeterPK": "09f08bc14bfdaf427fdd0eb676db21a86fa908a25870158345e4f847b5ada35e",
                 "owner": getAddress("Doe Four"),
-                "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
+                "matcher": getAddress("Matcher"),
                 "operationalSince": 1514764800,
                 "capacityWh": 10000,
                 "lastSmartMeterReadWh": 0,
@@ -246,7 +246,7 @@ demoConfig =
                 "smartMeter": "0x1112ec367b20d2bffd40ee11523c3d36d61adf1b",
                 "smartMeterPK": "50764e302e4ed8ce624003deca642c03ce06934fe77585175c5576723f084d4c",
                 "owner": getAddress("Doe Four"),
-                "matcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e",
+                "matcher": getAddress("Matcher"),
                 "operationalSince": 1529971200,
                 "capacityWh": 5000,
                 "lastSmartMeterReadWh": 0,
@@ -297,8 +297,8 @@ demoConfig =
             "data": {
                 "assetId": 0,
                 "meterreading": 10,
-                "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
-                "smartMeterPK": "0x12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
+                "smartMeter": getAddress("Smart Meter Producing Four"),
+                "smartMeterPK": getPrivateKey("Smart Meter Producing Four"),
                 "filehash": "newMeterRead"
             }
         },
@@ -326,8 +326,8 @@ demoConfig =
             "data": {
                 "assetId": 0,
                 "meterreading": 15,
-                "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
-                "smartMeterPK": "0x12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
+                "smartMeter": getAddress("Smart Meter Producing Four"),
+                "smartMeterPK": getPrivateKey("Smart Meter Producing Four"),
                 "filehash": "newMeterRead"
             }
         },
@@ -345,8 +345,8 @@ demoConfig =
             "data": {
                 "assetId": 0,
                 "meterreading": 20,
-                "smartMeter": "0x343854a430653571b4de6bf2b8c475f828036c30",
-                "smartMeterPK": "0x12c5c7473dbdb92a524a93baa14ded529fe29acef8d269a3901c14a15e2b0f98",
+                "smartMeter": getAddress("Smart Meter Producing Four"),
+                "smartMeterPK": getPrivateKey("Smart Meter Producing Four"),
                 "filehash": "newMeterRead"
             }
         },
@@ -427,7 +427,7 @@ demoConfig =
               "currentPeriod": 0,
               "demandId": 0,
               "supplyId": 0,
-              "allowedMatcher": "0x585cc5c7829b1fd303ef5c019ed23815a205a59e"
+              "allowedMatcher": getAddress("Matcher")
             }
         },
         {
